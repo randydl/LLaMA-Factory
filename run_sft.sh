@@ -4,7 +4,7 @@ deepspeed \
     --num_gpus 8 \
     --num_nodes 2 \
     --hostfile hostfile \
-    --master_addr 10.252.32.11 \
+    --master_addr 10.252.32.12 \
     src/train.py \
     --model_name_or_path meta-llama/Meta-Llama-3-8B-Instruct \
     --stage sft \

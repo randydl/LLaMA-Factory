@@ -2,34 +2,37 @@
 
 deepspeed \
     --num_gpus 8 \
-    --num_nodes 2 \
+    --num_nodes 4 \
     --hostfile hostfile \
-    --master_addr 10.252.32.11 \
-    src/train.py \
-    --model_name_or_path meta-llama/Meta-Llama-3-8B-Instruct \
+    --master_addr 10.252.32.12 src/train.py \
+    --deepspeed examples/deepspeed/ds_z2_config.json \
+    --model_name_or_path /nas_data/userdata/zhengwei/cxmt-models/base/cxmt-llama3.1-8b-cpt-v1 \
     --stage pt \
-    --do_train true \
+    --do_train True \
     --finetuning_type lora \
-    --lora_target all \
-    --dataset c4_demo \
+    --dataset cxmt-private,semi-book-paper,cxmt-cptest \
+    --template default \
     --cutoff_len 2048 \
-    --max_samples 1000 \
-    --overwrite_cache true \
-    --preprocessing_num_workers 16 \
+    --overwrite_cache True \
+    --preprocessing_num_workers 64 \
+    --num_train_epochs 3.0 \
+    --per_device_train_batch_size 4 \
+    --gradient_accumulation_steps 1 \
+    --warmup_ratio 0.1 \
+    --learning_rate 5e-5 \
+    --lr_scheduler_type cosine \
+    --lora_rank 16 \
+    --lora_alpha 32 \
+    --lora_target all \
+    --lora_dropout 0.1 \
+    --ddp_timeout 180000000 \
     --output_dir saves/llama3-8b/lora/pretrain \
+    --overwrite_output_dir True \
     --logging_steps 10 \
     --save_steps 500 \
-    --plot_loss true \
-    --overwrite_output_dir true \
-    --per_device_train_batch_size 1 \
-    --gradient_accumulation_steps 8 \
-    --learning_rate 1.0e-4 \
-    --num_train_epochs 3.0 \
-    --lr_scheduler_type cosine \
-    --warmup_ratio 0.1 \
-    --bf16 true \
-    --ddp_timeout 180000000 \
-    --val_size 0.1 \
     --per_device_eval_batch_size 1 \
     --eval_strategy steps \
-    --eval_steps 500
+    --eval_steps 500 \
+    --val_size 0.01 \
+    --plot_loss \
+    --bf16
