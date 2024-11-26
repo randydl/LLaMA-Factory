@@ -1,0 +1,37 @@
+#!/bin/bash
+
+deepspeed \
+    --num_gpus 8 \
+    --num_nodes 2 \
+    --hostfile hostfile \
+    --master_addr 10.252.32.12 \
+    src/train.py \
+    --model_name_or_path meta-llama/Meta-Llama-3-8B-Instruct \
+    --stage sft \
+    --do_train true \
+    --finetuning_type lora \
+    --lora_target all \
+    --deepspeed examples/deepspeed/ds_z3_config.json \
+    --dataset identity,alpaca_en_demo \
+    --template llama3 \
+    --cutoff_len 2048 \
+    --max_samples 1000 \
+    --overwrite_cache true \
+    --preprocessing_num_workers 16 \
+    --output_dir saves/llama3-8b/lora/sft \
+    --logging_steps 10 \
+    --save_steps 500 \
+    --plot_loss true \
+    --overwrite_output_dir true \
+    --per_device_train_batch_size 1 \
+    --gradient_accumulation_steps 2 \
+    --learning_rate 1.0e-4 \
+    --num_train_epochs 3.0 \
+    --lr_scheduler_type cosine \
+    --warmup_ratio 0.1 \
+    --bf16 true \
+    --ddp_timeout 180000000 \
+    --val_size 0.1 \
+    --per_device_eval_batch_size 1 \
+    --eval_strategy steps \
+    --eval_steps 500

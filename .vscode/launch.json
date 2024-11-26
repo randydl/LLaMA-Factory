@@ -1,0 +1,38 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "train.py",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/randy/train.py",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "env": {
+                "CUDA_VISIBLE_DEVICES": "7"
+            }
+        },
+        {
+            "name": "eval.py",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/randy/eval.py",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "env": {
+                "CUDA_VISIBLE_DEVICES": "7"
+            },
+            "args": [
+                "--model_path",
+                "/nas_data/userdata/randy/models/Llama-3.1-8B-Instruct",
+                "--task",
+                "mmlu",
+                "--template",
+                "llama3"
+            ]
+        }
+    ]
+}
