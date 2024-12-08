@@ -1,20 +1,21 @@
-import os
-import fire
-import subprocess
-from pathlib import Path
+import sys
 from omegaconf import OmegaConf
 from llamafactory.train.tuner import run_exp
 
 
-os.environ['HF_ENDPOINT'] = 'https://hf-mirror.com'
-os.environ['http_proxy'] = 'http://172.19.92.23:13128'
-os.environ['https_proxy'] = 'http://172.19.92.23:13128'
+def parse_args():
+    results = []
+    for arg in sys.argv[1:]:
+        if not arg.startswith('-') and arg.endswith('.yaml'):
+            content = OmegaConf.load(arg)
+            for key, value in content.items():
+                results.append(f'--{key}={value}')
+        else:
+            results.append(arg)
+    return results
 
 
 if __name__ == '__main__':
-    args = OmegaConf.load('examples/train_lora/llama3_lora_pretrain.yaml')
-    args = OmegaConf.merge(args, {
-        'model_name_or_path': '/nas_data/userdata/randy/models/Meta-Llama-3-8B',
-        'quantization_bit': 4
-    })
-    run_exp(args)
+    args = parse_args()
+    sys.argv = [sys.argv[0]] + args
+    run_exp()

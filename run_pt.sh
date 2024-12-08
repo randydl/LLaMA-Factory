@@ -14,8 +14,8 @@ deepspeed \
     --template default \
     --cutoff_len 2048 \
     --overwrite_cache True \
-    --preprocessing_num_workers 64 \
     --num_train_epochs 10.0 \
+    --preprocessing_num_workers 64 \
     --per_device_train_batch_size 4 \
     --gradient_accumulation_steps 1 \
     --warmup_ratio 0.1 \
@@ -23,10 +23,10 @@ deepspeed \
     --lr_scheduler_type cosine \
     --lora_rank 16 \
     --lora_alpha 32 \
-    --lora_target all \
     --lora_dropout 0.1 \
     --ddp_timeout 180000000 \
-    --output_dir /nas_data/userdata/randy/models/cxmt/pt/cxmt-llama3.1-8b-v3 \
+    --neftune_noise_alpha 5 \
+    --output_dir /nas_data/userdata/randy/models/cxmt/pt/lora/cxmt-llama3.1-8b-cpt-v4 \
     --overwrite_output_dir True \
     --logging_steps 10 \
     --save_steps 500 \
