@@ -1,0 +1,4 @@
+model_name_or_path: /nas_data/userdata/randy/models/cxmt/pt/merge/cxmt-llama3.1-8b-cpt-v3
+adapter_name_or_path: /nas_data/userdata/randy/models/cxmt/sft/lora/cxmt-llama3.1-8b-pt-v3-sft-v2
+template: llama3
+finetuning_type: lora

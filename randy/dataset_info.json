@@ -1,0 +1,102 @@
+{
+  "cxmt-private": {
+    "file_name": "/nas_data/userdata/zhengwei/dataset/cxmt-semi/pt/cxmt-private.jsonl",
+    "columns": {
+      "prompt": "text"
+    }
+  },
+  "wipo-semi": {
+    "file_name": "/nas_data/userdata/zhengwei/dataset/cxmt-semi/pt/wipo-semiconductors.jsonl",
+    "columns": {
+      "prompt": "text"
+    }
+  },
+  "fineweb-edu-semi": {
+    "file_name": "/nas_data/userdata/zhengwei/dataset/cxmt-semi/pt/fineweb-edu-semi.jsonl",
+    "columns": {
+      "prompt": "text"
+    }
+  },
+  "MG-verilog-pt": {
+    "file_name": "/nas_data/userdata/zhengwei/dataset/cxmt-semi/pt/MG-Verilog-code.jsonl",
+    "columns": {
+      "prompt": "text"
+    }
+  },
+  "verilog-v3-code": {
+    "file_name": "/nas_data/userdata/zhengwei/dataset/cxmt-semi/pt/verilog-v3-code.jsonl",
+    "columns": {
+      "prompt": "text"
+    }
+  },
+  "semi-book-paper": {
+    "file_name": "/nas_data/userdata/zhengwei/dataset/cxmt-semi/pt/sem-v2-part1-chucks.jsonl",
+    "columns": {
+      "prompt": "content"
+    }
+  },
+  "wikipedia-semi": {
+    "file_name": "/nas_data/userdata/zhengwei/dataset/cxmt-semi/pt/wikipedia-semi.jsonl",
+    "columns": {
+      "prompt": "text"
+    }
+  },
+  "SkyPile-sub-2B": {
+    "file_name": "/nas_data/userdata/zhengwei/dataset/cxmt-semi/pt/SkyPile-sub-2B.jsonl",
+    "columns": {
+      "prompt": "text"
+    }
+  },
+  "fineweb-edu-sub-5B": {
+    "file_name": "/nas_data/userdata/zhengwei/dataset/cxmt-semi/pt/fineweb-edu-sub-5B.jsonl",
+    "columns": {
+      "prompt": "text"
+    }
+  },
+  "fineweb-edu-semi-sft-bonito-12k": {
+    "file_name": "/nas_data/userdata/zhengwei/dataset/cxmt-semi/sft/fineweb-semi-sft-bonito-12k.jsonl"
+  },
+  "sharegpt4": {
+    "file_name": "/nas_data/userdata/zhengwei/dataset/sharegpt_gpt4/sharegpt_gpt4.jsonl",
+    "formatting": "sharegpt"
+  },
+  "sharegpt4-zh": {
+    "file_name": "/nas_data/userdata/zhengwei/dataset/sharegpt_gpt4/sharegpt_zh_38K_format.jsonl",
+    "formatting": "sharegpt"
+  },
+  "fineweb-edu-qa-24k": {
+    "file_name": "/nas_data/userdata/zhengwei/dataset/cxmt-semi/sft/fineweb-qa-24k.jsonl",
+    "formatting": "sharegpt"
+  },
+  "semi-qa-8k": {
+    "file_name": "/nas_data/userdata/zhengwei/dataset/cxmt-semi/sft/semi-qa-8k.jsonl"
+  },
+  "semi-qa-2.8k": {
+    "file_name": "/nas_data/userdata/zhengwei/dataset/cxmt-semi/sft/semi-qa-2.8k.jsonl",
+    "formatting": "sharegpt"
+  },
+  "semi-fineweb-alpaca-en-zh-shuffling": {
+    "file_name": "/nas_data/userdata/zhengwei/dataset/cxmt-semi/sft/semi-fineweb-alpaca-en-zh-shuffling.jsonl",
+    "formatting": "sharegpt"
+  },
+  "all-shuffling": {
+    "file_name": "/nas_data/userdata/zhengwei/dataset/cxmt-semi/sft/all-shuffling.jsonl",
+    "formatting": "sharegpt"
+  },
+  "cxmt-cptest": {
+    "file_name": "/nas_data/userdata/zhengwei/dataset/cxmt-semi/pt/cxmt-cptest.json",
+    "columns": {
+      "prompt": "text"
+    }
+  },
+  "cxmt-lms-videos": {
+    "file_name": "/nas_data/userdata/zhengwei/dataset/cxmt-semi/pt/cxmt-lms-videos.json",
+    "columns": {
+      "prompt": "text"
+    }
+  },
+  "cxmt-cptest-sft": {
+    "file_name": "/nas_data/userdata/zhengwei/dataset/cxmt-semi/sft/simplified_data_no_rag_process_v2.jsonl",
+    "formatting": "sharegpt"
+  }
+}
