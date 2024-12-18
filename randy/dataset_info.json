@@ -98,5 +98,13 @@
   "cxmt-cptest-sft": {
     "file_name": "/nas_data/userdata/zhengwei/dataset/cxmt-semi/sft/simplified_data_no_rag_process_v2.jsonl",
     "formatting": "sharegpt"
+  },
+  "semikong-qa-15k": {
+    "file_name": "/nas_data/userdata/zhengwei/dataset/cxmt-semi/sft/semikong-qa-15k.json",
+    "formatting": "alpaca"
+  },
+  "vinhtran2611-qa-58k": {
+    "file_name": "/nas_data/userdata/zhengwei/dataset/cxmt-semi/sft/vinhtran2611-qa-58k.json",
+    "formatting": "alpaca"
   }
 }
