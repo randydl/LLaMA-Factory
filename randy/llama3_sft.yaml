@@ -1,5 +1,5 @@
 ### model
-model_name_or_path: /nas_data/userdata/randy/models/cxmt/pt/merge/cxmt-llama3.1-8b-cpt-v3
+model_name_or_path: /nas_data/userdata/randy/models/cxmt/pt/merge/llama3.1-8b-instruct-pt-v2
 
 ### method
 stage: sft
@@ -9,30 +9,32 @@ lora_target: all
 lora_rank: 512
 lora_alpha: 1024
 lora_dropout: 0.05
-additional_target: embed_tokens,lm_head
-flash_attn: fa2
+# additional_target: embed_tokens,lm_head
 deepspeed: examples/deepspeed/ds_z2_config.json
+flash_attn: fa2
+use_dora: true
 
 ### dataset
-dataset: semi-fineweb-alpaca-en-zh-shuffling,cxmt-cptest-sft
+dataset: fineweb-edu-qa-24k,semi-qa-2.8k,semikong-qa-15k,cxmt-cptest-qa
 template: llama3
 cutoff_len: 2048
 overwrite_cache: true
 preprocessing_num_workers: 64
 
 ### output
-output_dir: /nas_data/userdata/randy/models/cxmt/sft/lora/cxmt-llama3.1-8b-pt-v3-sft-v3
+output_dir: /nas_data/userdata/randy/models/cxmt/sft/lora/llama3.1-8b-instruct-pt-v2-sft-v1
 overwrite_output_dir: true
 logging_steps: 10
-save_steps: 500
+save_steps: 200
 plot_loss: true
+report_to: tensorboard
 
 ### train
 per_device_train_batch_size: 4
 gradient_accumulation_steps: 2
 warmup_ratio: 0.1
-learning_rate: 5e-6
-num_train_epochs: 5.0
+learning_rate: 2e-5
+num_train_epochs: 4.0
 lr_scheduler_type: cosine
 neftune_noise_alpha: 5
 ddp_timeout: 180000000
@@ -42,4 +44,4 @@ bf16: true
 per_device_eval_batch_size: 1
 eval_strategy: steps
 eval_steps: 100
-val_size: 0.01
+val_size: 0.1
