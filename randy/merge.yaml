@@ -1,0 +1,10 @@
+### model
+model_name_or_path: /nas_train/app.e0016372/models/Qwen2.5-VL-32B-Instruct
+adapter_name_or_path: /nas_train/app.e0016372/train/sft/lora/qwen2.5-vl-32b-instruct-sft-v2
+template: qwen2_vl
+
+### export
+export_dir: /nas_train/app.e0016372/train/sft/merge/qwen2.5-vl-32b-instruct-sft-v2
+export_size: 5
+export_device: cpu
+export_legacy_format: false

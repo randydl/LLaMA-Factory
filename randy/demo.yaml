@@ -1,0 +1,49 @@
+### model
+model_name_or_path: /home/app.e0016372/wkspace/models/Qwen2.5-7B-Instruct
+# quantization_method: bitsandbytes
+# quantization_bit: 4
+
+### method
+stage: sft
+do_train: true
+finetuning_type: full
+deepspeed: examples/deepspeed/ds_z3_config.json
+
+### dataset
+dataset: alpaca_en_demo,alpaca_zh_demo
+template: qwen
+cutoff_len: 2048
+overwrite_cache: false
+data_shared_file_system: false
+dataloader_num_workers: 4
+preprocessing_num_workers: 16
+
+### output
+output_dir: /tmp/app.e0016372/llmtuner
+overwrite_output_dir: true
+logging_steps: 10
+logging_first_step: true
+save_steps: 1e10
+# save_total_limit: 100
+# load_best_model_at_end: true
+plot_loss: true
+report_to: tensorboard
+
+### train
+per_device_train_batch_size: 2
+gradient_accumulation_steps: 2
+warmup_ratio: 0.1
+learning_rate: 1e-4
+num_train_epochs: 1e5
+lr_scheduler_type: cosine
+ddp_timeout: 180000000
+bf16: true
+flash_attn: fa2
+enable_liger_kernel: true
+# resume_from_checkpoint: null
+
+### eval
+# per_device_eval_batch_size: 1
+# eval_strategy: steps
+# eval_steps: 100
+# val_size: 0.01

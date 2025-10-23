@@ -1,0 +1,52 @@
+### model
+model_name_or_path: /nas_data/userdata/randy/models/cxmt/sft/merge/qwen2.5-14b-instruct-pt-v8.1-sft-v7
+# quantization_method: bitsandbytes
+# quantization_bit: 4
+
+### method
+stage: dpo
+do_train: true
+finetuning_type: full
+pref_beta: 0.05
+pref_loss: orpo
+# new_special_tokens: <think>,</think>
+# additional_target: embed_tokens,lm_head
+deepspeed: examples/deepspeed/ds_z3_offload_config.json
+
+### dataset
+dataset: cxmt-cptest-dpo
+template: qwen
+cutoff_len: 2048
+overwrite_cache: true
+dataloader_num_workers: 4
+preprocessing_num_workers: 16
+
+### output
+output_dir: /nas_data/userdata/randy/models/cxmt/sft/lora/qwen2.5-14b-instruct-pt-v8.1-sft-v7-dpo-v4
+overwrite_output_dir: true
+logging_steps: 10
+logging_first_step: true
+save_steps: 100
+save_total_limit: 100
+load_best_model_at_end: true
+plot_loss: true
+report_to: tensorboard
+
+### train
+per_device_train_batch_size: 2
+gradient_accumulation_steps: 8
+warmup_ratio: 0.1
+learning_rate: 5e-6
+num_train_epochs: 2.0
+lr_scheduler_type: cosine
+ddp_timeout: 180000000
+bf16: true
+flash_attn: fa2
+enable_liger_kernel: true
+# resume_from_checkpoint: null
+
+### eval
+per_device_eval_batch_size: 1
+eval_strategy: steps
+eval_steps: 100
+val_size: 0.01

@@ -1,0 +1,53 @@
+### model
+model_name_or_path: /nas_data/userdata/randy/models/Qwen3-32B
+# quantization_method: bitsandbytes
+# quantization_bit: 4
+
+### method
+stage: pt
+do_train: true
+finetuning_type: lora
+lora_rank: 512
+lora_alpha: 1024
+lora_target: all
+lora_dropout: 0.05
+# neftune_noise_alpha: 15
+deepspeed: examples/deepspeed/ds_z3_config.json
+
+### dataset
+dataset: cxmt-misc,cxmt-dict-semi,cxmt-kms-docs,cxmt-cptest-docs,cxmt-cptest-videos,cxmt-lms-videos,cxmt-cptest-qa-text,cxmt-cptest-misc-text
+template: default
+cutoff_len: 2048
+overwrite_cache: true
+dataloader_num_workers: 4
+preprocessing_num_workers: 16
+
+### output
+output_dir: /nas_data/userdata/randy/models/cxmt/pt/lora/qwen3-32b-pt-v2
+overwrite_output_dir: true
+logging_steps: 10
+logging_first_step: true
+save_steps: 100
+save_total_limit: 100
+load_best_model_at_end: true
+plot_loss: true
+report_to: tensorboard
+
+### train
+per_device_train_batch_size: 4
+gradient_accumulation_steps: 4
+warmup_ratio: 0.1
+learning_rate: 1e-4
+num_train_epochs: 3.0
+lr_scheduler_type: cosine
+ddp_timeout: 180000000
+bf16: true
+flash_attn: fa2
+enable_liger_kernel: true
+# resume_from_checkpoint: null
+
+### eval
+per_device_eval_batch_size: 1
+eval_strategy: steps
+eval_steps: 100
+val_size: 0.01

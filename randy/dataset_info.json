@@ -1,0 +1,112 @@
+{
+  "circuit-books": {
+    "file_name": "/nas_train/app.e0016372/data/cxmt/pt/circuit-books.jsonl",
+    "columns": {
+      "prompt": "text"
+    }
+  },
+  "semi-book-paper-part1": {
+    "file_name": "/nas_train/app.e0016372/data/cxmt/pt/semi-book-paper-part1.jsonl",
+    "columns": {
+      "prompt": "text"
+    }
+  },
+  "semi-book-paper-part2": {
+    "file_name": "/nas_train/app.e0016372/data/cxmt/pt/semi-book-paper-part2.jsonl",
+    "columns": {
+      "prompt": "text"
+    }
+  },
+  "cxmt-misc": {
+    "file_name": "/nas_train/app.e0016372/data/cxmt/pt/cxmt-misc.jsonl",
+    "columns": {
+      "prompt": "text"
+    }
+  },
+  "cxmt-dict-semi": {
+    "file_name": "/nas_train/app.e0016372/data/cxmt/pt/cxmt-dict-semi.jsonl",
+    "columns": {
+      "prompt": "text"
+    }
+  },
+  "cxmt-kms-docs": {
+    "file_name": "/nas_train/app.e0016372/data/cxmt/pt/cxmt-kms-docs.jsonl",
+    "columns": {
+      "prompt": "text"
+    }
+  },
+  "cxmt-lms-videos": {
+    "file_name": "/nas_train/app.e0016372/data/cxmt/pt/cxmt-lms-videos.jsonl",
+    "columns": {
+      "prompt": "text"
+    }
+  },
+  "cxmt-cptest-docs": {
+    "file_name": "/nas_train/app.e0016372/data/cxmt/pt/cxmt-cptest-docs.jsonl",
+    "columns": {
+      "prompt": "text"
+    }
+  },
+  "cxmt-cptest-videos": {
+    "file_name": "/nas_train/app.e0016372/data/cxmt/pt/cxmt-cptest-videos.jsonl",
+    "columns": {
+      "prompt": "text"
+    }
+  },
+  "cxmt-cptest-qa-text": {
+    "file_name": "/nas_train/app.e0016372/data/cxmt/sft/cxmt-cptest-qa.json",
+    "columns": {
+      "prompt": "text"
+    }
+  },
+  "cxmt-cptest-misc-text": {
+    "file_name": "/nas_train/app.e0016372/data/cxmt/sft/cxmt-cptest-misc.json",
+    "columns": {
+      "prompt": "text"
+    }
+  },
+  "cxmt-dict-qa": {
+    "file_name": "/nas_train/app.e0016372/data/cxmt/sft/cxmt-dict-qa.jsonl",
+    "formatting": "sharegpt"
+  },
+  "cxmt-cptest-qa": {
+    "file_name": "/nas_train/app.e0016372/data/cxmt/sft/cxmt-cptest-qa.json",
+    "formatting": "alpaca",
+    "columns": {
+      "response": "output"
+    }
+  },
+  "cxmt-cptest-qa-v2": {
+    "file_name": "/nas_train/app.e0016372/data/cxmt/sft/cxmt-cptest-qa-v2.json",
+    "formatting": "alpaca"
+  },
+  "cxmt-cptest-qa-v3": {
+    "file_name": "/nas_train/app.e0016372/data/cxmt/sft/cxmt-cptest-qa-v3.json",
+    "formatting": "alpaca"
+  },
+  "cxmt-cptest-misc": {
+    "file_name": "/nas_train/app.e0016372/data/cxmt/sft/cxmt-cptest-misc.json",
+    "formatting": "alpaca",
+    "columns": {
+      "response": "output"
+    }
+  },
+  "cxmt-cptest-dpo": {
+    "file_name": "/nas_train/app.e0016372/data/cxmt/sft/cxmt-cptest-dpo.json",
+    "formatting": "alpaca",
+    "ranking": true,
+    "columns": {
+      "prompt": "instruction",
+      "chosen": "chosen",
+      "rejected": "rejected"
+    }
+  },
+  "book_examples": {
+    "file_name": "/nas_train/app.e0016372/projects/temp/files/book_examples.json",
+    "formatting": "sharegpt",
+    "columns": {
+      "messages": "conversations",
+      "images": "images"
+    }
+  }
+}
