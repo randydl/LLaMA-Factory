@@ -18,5 +18,5 @@ export TP_SOCKET_IFNAME=$NCCL_SOCKET_IFNAME
 outputs=$(python randy/train.py "$@")
 command=$(echo "$outputs" | awk -F'<randy>|</randy>' '{print $2}')
 
-deepspeed $command
-# deepspeed --hostfile randy/hostfile $command
+# deepspeed $command
+deepspeed --hostfile randy/hostfile $command
